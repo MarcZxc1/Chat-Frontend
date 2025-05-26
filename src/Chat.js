@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import io from "socket.io-client";
 import "./Chat.css";
 
-const socket = io("http://localhost:3001");
+const socket = io("https://chat-backend-production-1464.up.railway.app");
 
 function Chat() {
   const [messages, setMessages] = useState([]);
@@ -11,7 +11,7 @@ function Chat() {
 
   useEffect(() => {
     // Fetch previous messages
-    fetch("http://localhost:3001/messages")
+    fetch("https://chat-backend-production-1464.up.railway.app/messages")
       .then((response) => response.json())
       .then((data) => setMessages(data))
       .catch((error) => console.error("Error fetching messages:", error));
